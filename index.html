@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <div class="dropdown"></div>
+
+    <h2 > Document Location Finder </h2>
+
+    <label id="document_type_label" style="margin-right:30px;">Document Type</label>
+    <select name="document_type" id="document_type" onchange="onChange(event)" style="width:200px">
+            <option value="text">How To</option>
+            <option value="image">Presentation</option>
+            <option value="audio">Diagram</option>
+            <option value="video">Guidelines</option>
+    </select>
+
+    <br> <br>
+
+    <label hidden id="document_format_label" style="margin-right:15px;">Document Format</label>
+    <select hidden name="document_format" id="document_format" onchange="onChange(event)" style="width:200px">
+            <option value="text">Text</option>
+            <option value="image">Image</option>
+            <option value="audio">Audio</option>
+            <option value="video">Video</option>
+    </select>
+
+    <br> <br>
+
+    <div class="dropdown">
+        <label hidden id="document_audience_label" style="margin-right:2px;">Document Audience</label>
+        <select hidden name="document_audience" id="document_audience" onchange="onChange(event)" style="width:200px">
+            <option value="eng">ENG</option>
+            <option value="prod">PROD</option>
+            <option value="adsk">ADSK/GTEK</option>
+            <option value="vendor">Vendor</option>
+        </select>
+        
+    </div>
+    <br>
+    <p>bbb</p>
+    <br>
+    <div hidden id="div_answer">
+        <p> Answer: this is where it goes </p>
+    </div>
+    
+    
+    <script>
+        /* connects to onchange */
+        function onChange(event) {
+            console.log(event);
+            if (event.target.id === "document_type") {
+                document.getElementById("document_format_label").removeAttribute("hidden");
+                document.getElementById("document_format").removeAttribute("hidden");
+            }
+
+            if (event.target.id === "document_format") {
+                document.getElementById("document_audience_label").removeAttribute("hidden");
+                document.getElementById("document_audience").removeAttribute("hidden");
+            }
+            
+            if (event.target.id === "document_audience") {
+                document.getElementById("div_answer").removeAttribute("hidden");
+            }
+        }
+
+        /* connects to onclick="onClick()" */
+        function onClick(event) {
+            
+        }
+
+        
+        /* toggle visibility of the object */
+        function ShowHide() {
+            let hidden = document.getElementById("row_answer").getAttribute("hidden");
+            if (hidden) {
+                document.getElementById("row_answer").removeAttribute("hidden"); 
+
+                document.getElementById("hidden_label").innerText = "True";
+            } else {
+                document.getElementById("row_answer").setAttribute("hidden", "hidden");
+
+                document.getElementById("hidden_label").innerText = "False";
+            }
+        }
+        
+    </script>
+</body>
+
+</html>
