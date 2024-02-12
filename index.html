@@ -1,5 +1,54 @@
 <!DOCTYPE html>
 <html>
+    <head>
+          <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Style for the help bubble container */
+        .help-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Style for the help icon */
+        .help-icon::before {
+            content: "?";
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        /* Style for the help bubble */
+        .help-bubble {
+            visibility: hidden;
+            width: 160px;
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            border-radius: 6px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -80px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        /* Show the help bubble on hover */
+        .help-container:hover .help-bubble {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+    </head>
 <body>
 
     <div class="dropdown"></div>
@@ -14,6 +63,28 @@
             <option value="audio">Diagram</option>
             <option value="video">Guidelines</option>
     </select>
+   <!-- Help container -->
+<div class="help-container">
+    <!-- Help icon -->
+    <div class="help-icon"></div>
+
+    <!-- Help bubble content -->
+    <div class="help-bubble">
+        How to:
+        These files are used for teaching others how to do stuff.
+        Presentation: 
+        These files are used for showing people stuff. Either to presuade or show what you have done.
+        Diagram:
+        These files are used for diagrams that you use.
+        Guidelines:
+        Theese files are for Guidelines that apply to everyone.
+        
+        
+    </div>
+</div>
+   
+    <br> <br>
+    
     <label hidden id="document_format_label" style="margin-right:15px;">Document Format</label>
     <select hidden name="document_format" id="document_format" onchange="onChange(event)" style="width:200px">
             <option value="pick">Select</option>
@@ -37,7 +108,7 @@
         
     </div>
     <br>
-    <p>ccc</p>
+    <p>eee</p>
     <br>
     <div hidden id="div_answer">
         <p> Answer: This is somthing called an answer. </p>
